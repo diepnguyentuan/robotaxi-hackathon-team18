@@ -1,0 +1,33 @@
+# Virtual environments & Python caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# CRITICAL FOR COMPETITION SAFETY (never expose checkpoints/submissions in a public repo!)
+*.pt
+*.pth
+*.onnx
+*.engine
+submission*.zip
+runs/
+work/
+work_*/
+
+# Heavy datasets & zip archives (stored on Google Drive / Kaggle Datasets instead)
+data/
+*.zip
+*.tar
+*.tar.gz
+*.mp4
+*.mkv
+*.avi
+
+# OS / IDE clutter
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.ipynb_checkpoints/

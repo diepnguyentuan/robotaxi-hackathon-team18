@@ -1,0 +1,47 @@
+# Cấu hình nguồn video 4K đường phố Việt Nam ĐÃ XÁC MINH (Team 18 · TEAM_ID = 23)
+# NGUYÊN TẮC BẮT BUỘC (0% LEAKAGE):
+#   - 100% tách biệt tuyến đường giữa `val_videos` và `train_videos`.
+#   - Mọi URL dưới đây đều là video POV lái xe 4K thực tế tại Việt Nam đã kiểm tra link sống.
+
+settings:
+  interval_sec: 4.5          # Khoảng cách tối thiểu giữa 2 frame liên tiếp (giây)
+  min_sharpness: 55.0        # Ngưỡng Laplacian variance (loại frame nhòe mờ do rung lắc)
+  min_dhash_dist: 8          # Ngưỡng dHash Hamming (>8 = chặt gấp 4 lần ngưỡng cảnh báo 2 của BTC)
+  max_width: 1280            # Resize cạnh dài về 1280px (nhẹ ổ cứng, sắc nét cho imgsz=640)
+  jpeg_quality: 92
+  skip_start_sec: 15         # Bỏ qua 15s intro video
+  skip_end_sec: 15           # Bỏ qua 15s outro video
+
+# === GOLDEN VN VAL VIDEOS (Mục tiêu ~200-230 ảnh: Ngày + Sau mưa + Đêm) ===
+val_videos:
+  - name: "vn_val_hanoi_gialam_hadong"
+    source: "https://www.youtube.com/watch?v=tmqxaXEqFEs"
+    scenario: "day_bridge_urban_mixed_traffic"
+    max_frames: 90
+  - name: "vn_val_hcm_after_rain"
+    source: "https://www.youtube.com/watch?v=dOB0qDO7UVI"
+    scenario: "after_rain_wet_reflection_intersections"
+    max_frames: 75
+  - name: "vn_val_hcm_night"
+    source: "https://www.youtube.com/watch?v=-zsmVvJ8p2Q"
+    scenario: "night_headlight_glare_dense_motorbikes"
+    max_frames: 65
+
+# === VN TRAIN POOL VIDEOS (100% tuyến phố KHÁC Val · Mục tiêu ~1.200-1.600 ảnh dùng cho V1->V4) ===
+train_videos:
+  - name: "vn_train_hanoi_busy"
+    source: "https://www.youtube.com/watch?v=l-cQOa5K2X0"
+    scenario: "day_busy_urban_hanoi"
+    max_frames: 400
+  - name: "vn_train_hanoi_tranduyhung"
+    source: "https://www.youtube.com/watch?v=-n-4zXrM_RQ"
+    scenario: "day_wide_avenue_bus_car_signs"
+    max_frames: 350
+  - name: "vn_train_hanoi_hotungmau"
+    source: "https://www.youtube.com/watch?v=YRi2JzmTTro"
+    scenario: "day_congested_motorbikes_trucks"
+    max_frames: 350
+  - name: "vn_train_hcm_heavy_rain"
+    source: "https://www.youtube.com/watch?v=XvV9eFVtsQg"
+    scenario: "heavy_rain_night_neon_hard_cases"
+    max_frames: 350

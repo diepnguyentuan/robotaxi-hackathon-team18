@@ -1,0 +1,17 @@
+# Core data & geometry pipeline (Local / Colab / Kaggle)
+numpy>=1.24.0
+pillow>=10.0.0
+opencv-python-headless>=4.8.0
+shapely>=2.0.0
+pyyaml>=6.0.1
+tqdm>=4.66.0
+
+# Downloading & dataset connectors
+yt-dlp>=2024.10.0
+datasets>=2.19.0
+huggingface-hub>=0.23.0
+
+# Pre-label & SAM2 (install on GPU runtime — Kaggle/Colab)
+# Note: For final training/export notebook, keep exact competition pinned versions:
+# ultralytics==8.4.214 onnx==1.23.2 onnxslim==0.1.99 onnxruntime==1.32.0 pycocotools
+ultralytics>=8.3.0
